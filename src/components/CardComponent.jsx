@@ -10,10 +10,13 @@ const CardComponent = ({ fetchTodos }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:8000/todos", {
-        title,
-        description,
-      });
+      const response = await axios.post(
+        "https://todobackendapi-310a688ea7c5.herokuapp.com/todos",
+        {
+          title,
+          description,
+        }
+      );
       console.log("Data successfully sent:", response.data);
       fetchTodos();
       setTitle("");

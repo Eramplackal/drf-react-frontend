@@ -10,7 +10,9 @@ function App() {
 
   const fetchTodos = async () => {
     try {
-      const response = await axios.get("http://localhost:8000/todos");
+      const response = await axios.get(
+        "https://todobackendapi-310a688ea7c5.herokuapp.com/todos"
+      );
       setTodos(response.data);
     } catch (error) {
       console.error("Error fetching todos:", error);

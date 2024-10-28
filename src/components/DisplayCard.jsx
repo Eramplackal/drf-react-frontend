@@ -28,7 +28,7 @@ const TodoList = ({ fetchTodos, todos }) => {
   const handleUpdate = async (id, updatedData) => {
     try {
       const response = await axios.patch(
-        `http://localhost:8000/todos/${id}`,
+        `https://todobackendapi-310a688ea7c5.herokuapp.com/todos/${id}`,
         updatedData
       );
       console.log("Todo updated successfully:", response.data);
@@ -42,7 +42,9 @@ const TodoList = ({ fetchTodos, todos }) => {
   // Handle delete operation
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:8000/todos/${id}`);
+      await axios.delete(
+        `https://todobackendapi-310a688ea7c5.herokuapp.com/todos/${id}`
+      );
       fetchTodos(); // Refresh the list after deletion
     } catch (error) {
       console.error("Error deleting todo:", error);
@@ -51,7 +53,9 @@ const TodoList = ({ fetchTodos, todos }) => {
 
   const handleDeleteAll = async () => {
     try {
-      await axios.delete("http://localhost:8000/todos/delete-all/");
+      await axios.delete(
+        "https://todobackendapi-310a688ea7c5.herokuapp.com/todos/delete-all/"
+      );
       fetchTodos(); // Refresh the list after deletion
     } catch (error) {
       console.error("Error deleting all todos:", error);
